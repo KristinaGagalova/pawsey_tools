@@ -6,6 +6,9 @@
 
 * Useful [commands](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)
 
+# Acacia data storage
+Data can be stored on Acacia Object storage, see more details about the account [here](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924480/Listing+the+contents+of+your+account).
+
 # pawsey_tools
 
 Useful scripts for pawsey Setonix HPC.       
