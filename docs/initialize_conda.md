@@ -8,11 +8,22 @@ bash Miniforge3-Linux-x86_64.sh -b -p "$(pwd)/miniforge"
 eval "$(/scratch/y95/kgagalova/mamba/miniforge/bin/conda shell.bash hook)"
 conda info | grep -E 'pkgs|envs|rc file|base environment'
 
-export CONDARC="$(pwd)/condarc"
+export CONDARC="$(pwd)/.condarc"
 export CONDA_ENVS_PATH="$(pwd)/conda_envs"
 export CONDA_PKGS_DIRS="$(pwd)/conda_pkgs"
 export CONDA_CACHE_DIR="$(pwd)/conda_cache"
 export HOME="$(pwd)"
+
+cat <<EOF > $(pwd)/.condarc
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+channel_priority: strict
+auto_activate_base: false
+show_channel_urls: true
+EOF
 
 # Activate Conda environment
 eval "$($(pwd)/miniforge/bin/conda shell.bash hook)"
