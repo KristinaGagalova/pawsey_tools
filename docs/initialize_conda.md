@@ -20,7 +20,7 @@ export CONDA_CACHE_DIR="$INSTALL_DIR/conda_cache"
 export HOME="$INSTALL_DIR"  # Optional but ensures isolation from $HOME/.conda
 
 # Create the .condarc configuration file before running mamba/conda
-cat <<EOF > "$CONDARC"
+cat <<EOF > /scratch/y95/kgagalova/miniforge/.condarc
 channels:
   - conda-forge
   - bioconda
@@ -29,9 +29,9 @@ channel_priority: strict
 auto_activate_base: false
 show_channel_urls: true
 envs_dirs:
-  - $CONDA_ENVS_PATH
+  - /change/path/miniforge/conda_envs
 pkgs_dirs:
-  - $CONDA_PKGS_DIRS
+  - /change/path/miniforge/conda_pkgs
 EOF
 
 # Activate the shell environment for this Miniforge installation
