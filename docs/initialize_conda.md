@@ -13,14 +13,14 @@ curl -LO https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 bash Miniforge3-Linux-x86_64.sh -b -p "$INSTALL_DIR"
 
 # Set Conda-related environment variables
-export CONDARC="$INSTALL_DIR/.condarc"
+export CONDARC="$MYSCRATCH/.condarc"
 export CONDA_ENVS_PATH="$INSTALL_DIR/conda_envs"
 export CONDA_PKGS_DIRS="$INSTALL_DIR/conda_pkgs"
 export CONDA_CACHE_DIR="$INSTALL_DIR/conda_cache"
 export HOME="$INSTALL_DIR"  # Optional but ensures isolation from $HOME/.conda
 
 # Create the .condarc configuration file before running mamba/conda
-cat <<EOF > /scratch/y95/kgagalova/miniforge/.condarc
+cat <<EOF > $MYSCRATCH/.condarc
 channels:
   - conda-forge
   - bioconda
