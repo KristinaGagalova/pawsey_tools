@@ -10,7 +10,7 @@
 #SBATCH --time=48:00:00              # Maximum runtime (48 hours)
 
 # Load necessary modules
-module load rclone/1.63.1
+module load rclone/1.68.1
 
 data=$1
 remote_dir=$2
