@@ -36,6 +36,16 @@ EOF
 
 # Activate the shell environment for this Miniforge installation
 eval "$($INSTALL_DIR/bin/conda shell.bash hook)"
+export PATH="$INSTALL_DIR/bin:$PATH"
+
+# Show environment info
+conda info | grep -E 'pkgs|envs|rc file|base environment'
+
+# Install mamba in the base environment
+conda install -n base mamba -c conda-forge -y
+
+# Create a new environment
+mamba create -n myenv python=3.7 poetry=1.1.12 -y
 
 # Show environment info
 conda info | grep -E 'pkgs|envs|rc file|base environment'
@@ -50,5 +60,5 @@ mamba create -n myenv python=3.7 poetry=1.1.12 -y
 # conda activate myenv
 
 # Use the environment (example usage without activate)
-$INSTALL_DIR/bin/conda run -n myenv python --version
+#$INSTALL_DIR/bin/conda run -n myenv python --version
 ```
