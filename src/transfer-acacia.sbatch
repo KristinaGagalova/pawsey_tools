@@ -6,11 +6,26 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=1G                     # Minimal memory allocation (1GB)
-#SBATCH --account=y95
+#SBATCH --account=pawsey1142
 #SBATCH --time=48:00:00              # Maximum runtime (48 hours)
 
 # Load necessary modules
 module load rclone/1.68.1
+
+#
+# Example usage:
+#
+# Copy a single file:
+#   sbatch transfer.sh results.txt backup/results
+#
+# Copy an entire directory:
+#   sbatch transfer.sh /scratch/project/run1 backup/run1
+#
+# Copy sequencing files stored in a directory:
+#   sbatch transfer.sh /scratch/project/fastq_files sequencing_backup/fastqs
+#
+# Files will be copied to:
+#   pawsey1142:<remote_dir>
 
 # Input path to transfer.
 # This can be either:
@@ -29,7 +44,7 @@ remote_dir=$2
 timestamp=$(date +"%Y%m%d_%H%M%S")
 
 # Copy files/directories to remote storage using rclone
-rclone copy "${data}" "y95:${remote_dir}" \
+rclone copy "${data}" "pawsey1142:${remote_dir}" \
   --progress \                         # Show real-time transfer progress
   --log-file="rclone_${timestamp}.log" \  # Save transfer log to file
   --log-level=INFO \                  # Log transfer information
