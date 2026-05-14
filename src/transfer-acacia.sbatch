@@ -16,13 +16,13 @@ module load rclone/1.68.1
 # Example usage:
 #
 # Copy a single file:
-#   sbatch transfer.sh results.txt backup/results
+#   sbatch transfer-acacia.sbatch results.txt backup/results
 #
 # Copy an entire directory:
-#   sbatch transfer.sh /scratch/project/run1 backup/run1
+#   sbatch transfer-acacia.sbatch /scratch/project/run1 backup/run1
 #
 # Copy sequencing files stored in a directory:
-#   sbatch transfer.sh /scratch/project/fastq_files sequencing_backup/fastqs
+#   sbatch transfer-acacia.sbatch /scratch/project/fastq_files sequencing_backup/fastqs
 #
 # Files will be copied to:
 #   pawsey1142:<remote_dir>
