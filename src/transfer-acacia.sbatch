@@ -33,11 +33,11 @@ module load rclone/1.68.1
 # - an entire directory
 data=$1
 
-# Destination path on the remote storage (y95).
+# Destination path on the remote storage.
 # Example:
 #   myfolder/results
 # Files will be copied to:
-#   y95:myfolder/results
+#   pawsey1142:myfolder/results
 remote_dir=$2
 
 # Generate timestamp for unique log filenames
